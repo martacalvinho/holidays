@@ -8,6 +8,8 @@ import ProductsPage from './pages/ProductsPage';
 import DiscountsPage from './pages/DiscountsPage';
 import UrgencyPage from './pages/UrgencyPage';
 import PreviewPage from './pages/PreviewPage';
+import PublishPage from './pages/PublishPage';
+import AnalyticsPage from './pages/AnalyticsPage';
 import { usePageStore } from './store/pageStore';
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
                     <Route path="/discounts" element={<DiscountsPage />} />
                     <Route path="/urgency" element={<UrgencyPage />} />
                     <Route path="/preview" element={<PreviewPage />} />
+                    <Route path="/publish" element={<PublishPage />} />
+                    <Route path="/analytics" element={<AnalyticsPage />} />
                     <Route path="*" element={<Navigate to="/branding" replace />} />
                   </Routes>
                 </main>

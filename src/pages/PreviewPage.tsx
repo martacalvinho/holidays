@@ -1,26 +1,12 @@
 import React, { useState } from 'react';
 import { usePageStore } from '../store/pageStore';
-import WinterTemplate from '../components/templates/WinterTemplate';
-import ChristmasTemplate from '../components/templates/ChristmasTemplate';
-import NewYearTemplate from '../components/templates/NewYearTemplate';
 import { Monitor, Smartphone } from 'lucide-react';
+import BaseTemplate from '../components/templates/BaseTemplate';
+import MobileTemplate from '../components/templates/MobileTemplate';
 
 const PreviewPage: React.FC = () => {
-  const { settings } = usePageStore();
+  const { settings, handleAddToCart } = usePageStore();
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
-
-  const getTemplateComponent = () => {
-    switch (settings.template.theme) {
-      case 'winter':
-        return <WinterTemplate settings={settings} />;
-      case 'christmas':
-        return <ChristmasTemplate settings={settings} />;
-      case 'newyear':
-        return <NewYearTemplate settings={settings} />;
-      default:
-        return <WinterTemplate settings={settings} />;
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -52,11 +38,23 @@ const PreviewPage: React.FC = () => {
             </button>
           </div>
         </div>
+      </div>
 
-        <div className={`bg-white shadow-lg mx-auto overflow-hidden ${
-          device === 'mobile' ? 'max-w-sm' : 'w-full'
+      {/* Preview Container */}
+      <div className="max-w-7xl mx-auto px-4">
+        <div className={`bg-white shadow-lg mx-auto ${
+          device === 'mobile' ? 'w-[390px]' : 'w-full'
         }`}>
-          {getTemplateComponent()}
+          {device === 'mobile' ? (
+            <MobileTemplate settings={settings} handleAddToCart={handleAddToCart} />
+          ) : (
+            <BaseTemplate 
+              settings={settings}
+              theme={settings.template.theme}
+              heroTitle={settings.hero.title}
+              heroImage={settings.hero.imageUrl}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -5,19 +5,18 @@ export default {
     extend: {
       colors: {
         winter: {
-          primary: '#A5F2F3',
-          secondary: '#D4F1F9',
-          accent: '#C0C0C0',
+          light: '#A5F2F3',
+          DEFAULT: '#D4F1F9',
+          silver: '#C0C0C0',
         },
         christmas: {
-          primary: '#146B3A',
-          secondary: '#EA4630',
-          accent: '#FFD700',
+          green: '#146B3A',
+          red: '#EA4630',
+          gold: '#FFD700',
         },
         newyear: {
-          primary: '#F7E7CE',
-          secondary: '#000000',
-          accent: '#E8E8E8',
+          gold: '#F7E7CE',
+          silver: '#E8E8E8',
         },
       },
       fontFamily: {

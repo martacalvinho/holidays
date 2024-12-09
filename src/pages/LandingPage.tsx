@@ -111,6 +111,64 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Pricing Section */}
+      <div className="bg-white py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-xl text-gray-600">
+              Start creating your holiday pages today
+            </p>
+          </div>
+          
+          <div className="max-w-lg mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="px-6 py-8 sm:p-10 sm:pb-6">
+              <div className="flex justify-center">
+                <span className="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600">
+                  Per Page Plan
+                </span>
+              </div>
+              <div className="mt-4 flex justify-center text-6xl font-extrabold text-gray-900">
+                <span className="ml-1 mr-3 text-xl font-medium text-gray-500 leading-8">$</span>
+                25
+              </div>
+              <p className="mt-4 text-sm text-gray-500 text-center">
+                Pay only when you publish your page
+              </p>
+            </div>
+            <div className="px-6 pt-6 pb-8 bg-gray-50 sm:px-10 sm:py-10">
+              <ul className="space-y-4">
+                {[
+                  'Unlimited page customization',
+                  'Professional templates',
+                  'Custom domain support',
+                  'Analytics dashboard',
+                  '24/7 customer support'
+                ].map((feature) => (
+                  <li key={feature} className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <Sparkles className="h-6 w-6 text-green-500" />
+                    </div>
+                    <p className="ml-3 text-base text-gray-700">{feature}</p>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <button
+                  onClick={() => navigate('/branding')}
+                  className="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+                >
+                  Start Creating Your Page
+                  <ArrowRight className="ml-2" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

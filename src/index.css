@@ -14,6 +14,33 @@
   }
 }
 
+@layer components {
+  /* Theme-specific styles */
+  .frost-card {
+    @apply backdrop-blur-lg bg-white/30 border border-white/50;
+  }
+
+  .christmas-card {
+    @apply bg-white shadow-lg border-2 border-christmas-green/20;
+  }
+
+  .newyear-card {
+    @apply bg-black/50 backdrop-blur-md border border-newyear-gold/10;
+  }
+
+  .winter-button {
+    @apply bg-gradient-to-r from-winter-light to-winter hover:from-winter hover:to-winter-light text-blue-900;
+  }
+
+  .christmas-button {
+    @apply bg-gradient-to-r from-christmas-red to-christmas-green hover:from-christmas-green hover:to-christmas-red text-white;
+  }
+
+  .newyear-button {
+    @apply bg-gradient-to-r from-newyear-gold to-newyear-silver hover:from-newyear-silver hover:to-newyear-gold text-black;
+  }
+}
+
 /* Winter Theme */
 .winter-theme {
   --primary: #A5F2F3;
@@ -96,31 +123,6 @@
     transform: scale(1.2);
     opacity: 0;
   }
-}
-
-/* Theme-specific styles */
-.frost-card {
-  @apply backdrop-blur-lg bg-white/30 border border-white/50;
-}
-
-.christmas-card {
-  @apply bg-white shadow-lg border-2 border-christmas-primary/20;
-}
-
-.newyear-card {
-  @apply bg-black/50 backdrop-blur-md border border-newyear-primary/10;
-}
-
-.winter-button {
-  @apply bg-gradient-to-r from-winter-primary to-winter-secondary hover:from-winter-secondary hover:to-winter-primary text-blue-900;
-}
-
-.christmas-button {
-  @apply bg-gradient-to-r from-christmas-secondary to-christmas-primary hover:from-christmas-primary hover:to-christmas-secondary text-white;
-}
-
-.newyear-button {
-  @apply bg-gradient-to-r from-newyear-primary to-newyear-accent hover:from-newyear-accent hover:to-newyear-primary text-black;
 }
 
 /* Animation utility classes */

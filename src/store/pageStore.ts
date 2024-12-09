@@ -4,6 +4,12 @@ import type { PageSettings, Product, DiscountCode, Template } from '../types';
 interface PageStore {
   settings: PageSettings;
   setLogo: (logo: string) => void;
+  setHeaderImage: (headerImage: string) => void;
+  setHeaderTitle: (title: string) => void;
+  setShowDiscountCodes: (show: boolean) => void;
+  setBusinessName: (name: string) => void;
+  setShowHolidayEdition: (show: boolean) => void;
+  setContactInfo: (email?: string, phone?: string) => void;
   setTemplate: (template: Template) => void;
   addProduct: (product: Product) => void;
   removeProduct: (productId: string) => void;
@@ -14,6 +20,7 @@ interface PageStore {
 
 export const usePageStore = create<PageStore>((set) => ({
   settings: {
+    pageId: Math.random().toString(36).substring(2, 15),
     businessName: '',
     template: {
       id: 'winter-wonderland',
@@ -27,9 +34,27 @@ export const usePageStore = create<PageStore>((set) => ({
       accent: '#C0C0C0'
     },
     products: [],
-    discountCodes: []
+    discountCodes: [],
+    headerImage: '',
+    contactEmail: '',
+    contactPhone: '',
+    headerTitle: '',
+    showDiscountCodes: false,
+    showHolidayEdition: false
   },
   setLogo: (logo) => set((state) => ({ settings: { ...state.settings, logo } })),
+  setHeaderImage: (headerImage) => set((state) => ({ settings: { ...state.settings, headerImage } })),
+  setHeaderTitle: (headerTitle) => set((state) => ({ settings: { ...state.settings, headerTitle } })),
+  setShowDiscountCodes: (show) => set((state) => ({ settings: { ...state.settings, showDiscountCodes: show } })),
+  setBusinessName: (name) => set((state) => ({ settings: { ...state.settings, businessName: name } })),
+  setShowHolidayEdition: (show) => set((state) => ({ settings: { ...state.settings, showHolidayEdition: show } })),
+  setContactInfo: (email, phone) => set((state) => ({ 
+    settings: { 
+      ...state.settings, 
+      contactEmail: email || state.settings.contactEmail,
+      contactPhone: phone || state.settings.contactPhone
+    } 
+  })),
   setTemplate: (template) => set((state) => ({ 
     settings: { 
       ...state.settings, 

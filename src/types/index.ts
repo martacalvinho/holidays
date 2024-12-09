@@ -29,7 +29,13 @@ export interface DiscountCode {
 
 export interface PageSettings {
   logo?: string;
+  headerImage?: string;
+  headerTitle?: string;
+  showDiscountCodes?: boolean;
   businessName: string;
+  showHolidayEdition?: boolean;
+  contactEmail?: string;
+  contactPhone?: string;
   template: Template;
   colorScheme: {
     primary: string;
